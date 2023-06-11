@@ -16,15 +16,15 @@ func _ready():
 func _physics_process(delta):
 	$Body/ViewportContainer.rect_rotation = 0
 	if drag:
-		$DampedSpringJoint2D.softness = 1
-		$GrabbyPart.global_position = $GrabbyPart.global_position.move_toward(oldMousePos,delta * $GrabbyPart.global_position.distance_squared_to(oldMousePos) * 0.24)
+		$DampedSpringJoint2D.softness = 0.27
+		$GrabbyPart.global_position = $GrabbyPart.global_position.move_toward(oldMousePos,delta * $GrabbyPart.global_position.distance_squared_to(oldMousePos))
 		oldMousePos = get_global_mouse_position()
 #		oldMousePos.x = clamp(oldMousePos.x,topLeftCorner.x,bottomRightCorner.x)
 #		oldMousePos.y = clamp(oldMousePos.y,topLeftCorner.y,bottomRightCorner.y)
 		$Label.text = str(oldMousePos.x)+" "+str(oldMousePos.y)
 	else:
 		$GrabbyPart.global_position = $Body.global_position
-		$DampedSpringJoint2D.softness = 20
+		$DampedSpringJoint2D.softness = 8
 		
 
 func _input(event):

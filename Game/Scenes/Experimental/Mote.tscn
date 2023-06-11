@@ -3,7 +3,7 @@
 [ext_resource path="res://Scenes/Experimental/Draggy.gd" type="Script" id=1]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 85.0235
+radius = 40.0
 
 [sub_resource type="ShaderMaterial" id=7]
 
@@ -86,7 +86,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="CircleShape2D" id=13]
-radius = 94.0053
+radius = 37.054
 
 [node name="Mote" type="Node2D"]
 script = ExtResource( 1 )
@@ -97,7 +97,6 @@ collision_mask = 0
 input_pickable = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrabbyPart"]
-visible = false
 shape = SubResource( 1 )
 
 [node name="DampedSpringJoint2D" type="PinJoint2D" parent="."]
@@ -113,6 +112,7 @@ mass = 6.0
 linear_damp = 3.0
 
 [node name="ViewportContainer" type="ViewportContainer" parent="Body"]
+visible = false
 material = SubResource( 7 )
 margin_left = -100.0
 margin_top = -100.0
@@ -162,8 +162,17 @@ autoplay = "New Anim"
 anims/RESET = SubResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
-visible = false
 shape = SubResource( 13 )
+
+[node name="Line2D" type="Line2D" parent="Body"]
+points = PoolVector2Array( 0, 0, 1, 0 )
+width = 80.0
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="Label" type="Label" parent="."]
 visible = false
