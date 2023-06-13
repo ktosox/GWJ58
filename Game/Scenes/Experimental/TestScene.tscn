@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Environment/GroundTileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Texture/TX Props.png" type="Texture" id=2]
@@ -6,11 +6,13 @@
 [ext_resource path="res://Scenes/Experimental/TestScene.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Experimental/TestWeedSpawner.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Experimental/TreeObject.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Experimental/DigSpot.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Environment/Pots/Pot3.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Environment/Pots/Pot2.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Environment/Pots/Pot1.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Environment/BigRock.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Experimental/RainDrop.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Experimental/Eye.tscn" type="PackedScene" id=13]
 
 [node name="TestScene" type="YSort"]
 script = ExtResource( 4 )
@@ -50,6 +52,9 @@ position = Vector2( 167, 583 )
 [node name="BigRock" parent="." instance=ExtResource( 11 )]
 position = Vector2( 97, 593 )
 
+[node name="DigSpot" parent="BigRock" instance=ExtResource( 7 )]
+position = Vector2( 139, -76 )
+
 [node name="Node2D3" parent="." instance=ExtResource( 8 )]
 position = Vector2( 282, 600 )
 
@@ -64,3 +69,9 @@ position = Vector2( 58, 444 )
 
 [node name="TreeObject3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 140, 172 )
+
+[node name="Node2D4" parent="." instance=ExtResource( 13 )]
+position = Vector2( 171, 219 )
+
+[node name="Node2D5" parent="." instance=ExtResource( 13 )]
+position = Vector2( 143, 249 )
