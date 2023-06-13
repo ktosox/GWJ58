@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Texture/TX Props.png" type="Texture" id=1]
+
+[node name="Node2D" type="Sprite"]
+texture = ExtResource( 1 )
+offset = Vector2( 1, -18 )
+region_enabled = true
+region_rect = Rect2( 154, 337.316, 44.1062, 49.6837 )

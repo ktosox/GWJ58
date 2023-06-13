@@ -7,6 +7,8 @@ var dead = false
 func _ready():
 	# randomize weed
 	randomize()
+	if randi()%2 == 0:
+		$DeathParticles.angular_velocity *= -1 
 	$GrassSprite.region_rect.position = Vector2(32*(randi()%4),32*(randi()%3))
 	$DeathParticles.texture.region = $GrassSprite.region_rect
 	pass # Replace with function body.

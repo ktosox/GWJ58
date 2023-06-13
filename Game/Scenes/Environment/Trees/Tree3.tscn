@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/TX Plant.png-0529b566246ba1e1a8fd085930177149.stex"
+
+[node name="Tree3" type="Sprite"]
+texture = SubResource( 1 )
+offset = Vector2( 6, -75 )
+region_enabled = true
+region_rect = Rect2( 287, -16, 111, 178 )

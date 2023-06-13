@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/TX Props.png-d67da16ab8fe1ea9377ec97c9d1888e3.stex"
+
+[node name="Node2D" type="Sprite"]
+texture = SubResource( 1 )
+offset = Vector2( 0, -18 )
+region_enabled = true
+region_rect = Rect2( 159.772, 277.904, 32.2278, 38.0957 )
