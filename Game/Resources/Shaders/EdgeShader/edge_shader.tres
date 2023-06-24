@@ -21,9 +21,9 @@ void fragment()
 }"
 
 [sub_resource type="OpenSimplexNoise" id=3]
-period = 77.2
-persistence = 0.477
-lacunarity = 0.56
+period = 31.7
+persistence = 0.262
+lacunarity = 0.52
 
 [sub_resource type="NoiseTexture" id=4]
 seamless = true

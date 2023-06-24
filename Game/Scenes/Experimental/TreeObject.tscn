@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/Environment/Trees/Tree2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Experimental/TreeObject.gd" type="Script" id=4]
 [ext_resource path="res://Resources/Texture/Leafs.png" type="Texture" id=5]
-[ext_resource path="res://Scenes/Utility/ThisHandlesDragsNClicks.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Utility/ThisHandlesClicks.tscn" type="PackedScene" id=6]
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 5 )
@@ -82,15 +82,16 @@ height = 16.0
 script = ExtResource( 4 )
 
 [node name="Leafs" type="CPUParticles2D" parent="."]
-position = Vector2( 25.929, -78.4645 )
+position = Vector2( 12, -80 )
 emitting = false
 amount = 6
+lifetime = 0.6
 one_shot = true
 preprocess = 0.2
 speed_scale = 0.7
 explosiveness = 0.96
 randomness = 0.1
-lifetime_randomness = 0.56
+lifetime_randomness = 0.2
 local_coords = false
 texture = SubResource( 4 )
 emission_shape = 2
@@ -115,15 +116,16 @@ __meta__ = {
 }
 
 [node name="Leafs2" type="CPUParticles2D" parent="."]
-position = Vector2( -26, -78 )
+position = Vector2( -12, -78 )
 emitting = false
 amount = 6
+lifetime = 0.6
 one_shot = true
 preprocess = 0.2
 speed_scale = 0.7
 explosiveness = 0.96
 randomness = 0.1
-lifetime_randomness = 0.56
+lifetime_randomness = 0.2
 local_coords = false
 texture = SubResource( 4 )
 emission_shape = 2
@@ -160,7 +162,6 @@ anims/RESET = SubResource( 2 )
 anims/Shake = SubResource( 1 )
 
 [node name="Area2D" parent="." instance=ExtResource( 6 )]
-position = Vector2( 0, 0 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0, -80 )

@@ -18,7 +18,9 @@ func _ready():
 #	pass
 
 
-func _on_Area2D_input_event(viewport, event, shape_idx):
-	if $DirtSplash.emitting == false and (event.is_class("InputEventMouseButton")):
+
+func _on_Clicky_click():
+	if $DirtSplash.emitting == false:
+		$DirtSplash.global_position = get_global_mouse_position()
 		$DirtSplash.restart()
 	pass # Replace with function body.
