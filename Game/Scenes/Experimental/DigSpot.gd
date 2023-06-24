@@ -8,6 +8,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	for D in $VisibleGround.get_children():
+		D.modulate += Color(randf(),randf(),randf()) * (-0.1)
 	pass # Replace with function body.
 
 

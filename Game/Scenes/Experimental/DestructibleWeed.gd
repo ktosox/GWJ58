@@ -28,7 +28,8 @@ func weed_out():
 	pass
 
 
-func _on_Area2D_input_event(viewport, event, shape_idx):
-	if dead == false and (event.is_class("InputEventMouseButton")):
+
+func _on_Area2D2_click():
+	if dead == false:
 		weed_out()
 	pass # Replace with function body.

@@ -1,18 +1,17 @@
-extends Node2D
+extends Area2D
 
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+signal click
+signal drag(on)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
-	var treeSprites = $TreeSprites.get_children()
-	treeSprites[randi()%3].visible = false
-	treeSprites[randi()%2].visible = false
 	pass # Replace with function body.
+
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,7 +19,7 @@ func _ready():
 #	pass
 
 
-func _on_Area2D_click():
-	if $ThugShaker.is_playing() == false:
-		$ThugShaker.play("Shake")
+func _on_Area2D_input_event(viewport, event, shape_idx):
+	if event.is_class("InputEventMouseButton"):
+		emit_signal("click")
 	pass # Replace with function body.
