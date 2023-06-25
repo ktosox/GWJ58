@@ -5,10 +5,13 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 20.0
 
-[node name="Draggy" type="PinJoint2D"]
+[node name="Draggy" type="DampedSpringJoint2D"]
 node_a = NodePath("GrabbyPart")
-bias = 0.04
-softness = 1.5
+bias = 0.578
+disable_collision = false
+length = 1.0
+stiffness = 64.0
+damping = 0.02
 script = ExtResource( 1 )
 
 [node name="GrabbyPart" type="KinematicBody2D" parent="."]

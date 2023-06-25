@@ -22,7 +22,6 @@ func weed_out():
 	dead = true
 	$GrassSprite.visible = false
 	$DeathParticles.emitting = true
-	print($DeathParticles.texture.region)
 	yield(get_tree().create_timer(1.0),"timeout")
 	queue_free()
 	pass

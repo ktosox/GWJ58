@@ -52,7 +52,6 @@ damping_random = 0.38
 color_ramp = SubResource( 2 )
 
 [node name="Area2D2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 0, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2( 0, -4 )

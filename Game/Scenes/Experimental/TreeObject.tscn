@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Experimental/TreeObject.gd" type="Script" id=4]
 [ext_resource path="res://Resources/Texture/Leafs.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Utility/ThisHandlesClicks.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Experimental/ThugShaker.tscn" type="PackedScene" id=7]
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 5 )
@@ -15,90 +16,35 @@ region = Rect2( 16, 0, 8, 8 )
 offsets = PoolRealArray( 0.810056, 1 )
 colors = PoolColorArray( 0.960894, 0.960894, 0.960894, 1, 1, 1, 1, 0 )
 
-[sub_resource type="Animation" id=2]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-
-[sub_resource type="Animation" id=1]
-resource_name = "Shake"
-length = 0.9
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.3, 0.5 ),
-"transitions": PoolRealArray( 2, 2, 0.5, 1 ),
-"update": 0,
-"values": [ 3.0, -3.0, 2.0, 0.0 ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("Leafs")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "restart"
-} ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath("Leafs2")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "restart"
-} ]
-}
-
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 45.0
 height = 16.0
 
-[node name="TreeObject" type="Node2D"]
+[sub_resource type="CircleShape2D" id=6]
+radius = 6.0
+
+[node name="TreeObject" type="StaticBody2D"]
 script = ExtResource( 4 )
 
 [node name="Leafs" type="CPUParticles2D" parent="."]
 position = Vector2( 12, -80 )
 emitting = false
 amount = 6
-lifetime = 0.6
+lifetime = 0.7
 one_shot = true
 preprocess = 0.2
 speed_scale = 0.7
 explosiveness = 0.96
 randomness = 0.1
-lifetime_randomness = 0.2
+lifetime_randomness = 0.4
 local_coords = false
 texture = SubResource( 4 )
 emission_shape = 2
 emission_rect_extents = Vector2( 10, 30 )
 flag_align_y = true
-direction = Vector2( 1, 1 )
+direction = Vector2( 1, 0.4 )
 spread = 25.16
+gravity = Vector2( 0, 300 )
 initial_velocity = 200.0
 initial_velocity_random = 0.19
 orbit_velocity = 0.3
@@ -119,20 +65,21 @@ __meta__ = {
 position = Vector2( -12, -78 )
 emitting = false
 amount = 6
-lifetime = 0.6
+lifetime = 0.7
 one_shot = true
 preprocess = 0.2
 speed_scale = 0.7
 explosiveness = 0.96
 randomness = 0.1
-lifetime_randomness = 0.2
+lifetime_randomness = 0.4
 local_coords = false
 texture = SubResource( 4 )
 emission_shape = 2
 emission_rect_extents = Vector2( 10, 30 )
 flag_align_y = true
-direction = Vector2( -1, 1 )
+direction = Vector2( -1, 0.4 )
 spread = 25.16
+gravity = Vector2( 0, 300 )
 initial_velocity = 200.0
 initial_velocity_random = 0.19
 orbit_velocity = -0.3
@@ -157,17 +104,20 @@ __meta__ = {
 
 [node name="Tree1" parent="TreeSprites" instance=ExtResource( 2 )]
 
-[node name="ThugShaker" type="AnimationPlayer" parent="."]
-anims/RESET = SubResource( 2 )
-anims/Shake = SubResource( 1 )
+[node name="ThugShaker" parent="." instance=ExtResource( 7 )]
 
 [node name="Area2D" parent="." instance=ExtResource( 6 )]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+visible = false
 position = Vector2( 0, -80 )
 shape = SubResource( 3 )
 __meta__ = {
 "_editor_description_": ""
 }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -2 )
+shape = SubResource( 6 )
 
 [connection signal="click" from="Area2D" to="." method="_on_Area2D_click"]

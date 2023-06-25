@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Environment/GroundTileMap.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Experimental/DestroyableRock.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Experimental/TestScene.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Experimental/TestWeedSpawner.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Experimental/TreeObject.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Experimental/DigSpot.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Environment/BigRock.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Experimental/RainDrop.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Experimental/TestPot.tscn" type="PackedScene" id=14]
 
@@ -28,11 +28,8 @@ rect_scale = Vector2( 2, 2 )
 [node name="TestPot" parent="." instance=ExtResource( 14 )]
 position = Vector2( 176, 443 )
 
-[node name="BigRock" parent="." instance=ExtResource( 11 )]
-position = Vector2( 97, 593 )
-
 [node name="DigSpot" parent="." instance=ExtResource( 7 )]
-position = Vector2( 236, 517 )
+position = Vector2( 298, 452 )
 
 [node name="TestWeedSpawner" parent="." instance=ExtResource( 5 )]
 position = Vector2( 166, 302 )
@@ -48,3 +45,6 @@ position = Vector2( 58, 444 )
 
 [node name="TreeObject3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 140, 172 )
+
+[node name="DestroyableRock" parent="." instance=ExtResource( 2 )]
+position = Vector2( 95, 574 )

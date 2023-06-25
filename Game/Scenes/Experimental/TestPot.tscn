@@ -1,19 +1,23 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Utility/ThisHandlesDrags.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Texture/TX Props.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Experimental/Eye.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Experimental/TestPot.gd" type="Script" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 12.0
 
 [node name="TestPot" type="RigidBody2D"]
+mass = 6.0
 can_sleep = false
 linear_damp = 2.0
+script = ExtResource( 4 )
 
 [node name="Draggy" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, -14 )
 node_b = NodePath("..")
 
 [node name="TxProps" type="Sprite" parent="."]
-position = Vector2( 0, -14 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 163, 287, 27, 29 )
@@ -23,3 +27,8 @@ position = Vector2( 5, 5 )
 
 [node name="Eye2" parent="TxProps" instance=ExtResource( 3 )]
 position = Vector2( -5, 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[connection signal="dragging" from="Draggy" to="." method="_on_Draggy_dragging"]

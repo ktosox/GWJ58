@@ -8,10 +8,6 @@ extends StaticBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
-	var treeSprites = $TreeSprites.get_children()
-	treeSprites[randi()%3].visible = false
-	treeSprites[randi()%2].visible = false
 	pass # Replace with function body.
 
 
@@ -20,9 +16,7 @@ func _ready():
 #	pass
 
 
-func _on_Area2D_click():
-	if $ThugShaker.is_playing() == false:
+func _on_Clicky_click():
+	if !$ThugShaker.is_playing() :
 		$ThugShaker.play("Shake")
-		$Leafs.restart()
-		$Leafs2.restart()
 	pass # Replace with function body.
